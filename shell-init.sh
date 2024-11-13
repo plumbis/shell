@@ -14,9 +14,6 @@ fc-cache -fv
 # Download p10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# Set p10k as the zsh theme
-sed -i 's:ZSH_THEME="robbyrussell":ZSH_THEME="powerlevel10k/powerlevel10k":' ~/.zshrc
-
-# Enable colorize
-sed -i 's:plugins=(git):plugins=(git colorize):' ~/.zshrc
+cp .zshrc.sh ~/.zshrc.sh
+cp .p10k.sh ~/.p10k.zsh
 
