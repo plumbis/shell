@@ -5,22 +5,21 @@ export CHSH=yes
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Download Jet Brains Mono nerd font
-wget "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf"
-wget "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf"
-wget "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf"
-wget "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf"
-mv *.ttf /usr/share/fonts/TTF
+wget --spider -P /usr/share/fonts/TTF "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf"
+wget --spider -P /usr/share/fonts/TTF "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf"
+wget --spider -P /usr/share/fonts/TTF "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf"
+wget --spider -P /usr/share/fonts/TTF "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf"
 fc-cache -fv
 
 # Download p10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k
 
 # Move OMZ config files
-cp .zshrc ~/.zshrc
-cp .p10k.zsh ~/.p10k.zsh
+mv .zshrc /root/.zshrc
+mv .p10k.zsh /root/.p10k.zsh
 
 # Copy zsh history
-cp /boot/config/.zsh_history ~/.zsh_history
+mv /boot/config/.zsh_history /root/.zsh_history
 
 # Set the default shell
 chsh -s /bin/zsh
