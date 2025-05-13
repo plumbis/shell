@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Delay running after array start
-sleep 120
-
 export CHSH=yes
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
